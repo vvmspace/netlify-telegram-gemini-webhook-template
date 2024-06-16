@@ -21,7 +21,7 @@ const sendMessage = async (chatId, text) => {
 
 const askGemini = async (prompt) => {
   const apiKey = process.env.GEMINI_API_KEY;
-  const model = process.env.GEMINI_MODEL || "gpt-3.5-turbo";
+  const model = process.env.GEMINI_MODEL || "gemini-1.5-flash"
 
   if (!apiKey) {
     throw new Error("GEMINI_API_KEY key is required");
@@ -34,7 +34,7 @@ const askGemini = async (prompt) => {
       {
         parts: [
           {
-            text: `${prefix}${prompt}${suffix}`,
+            text: prompt,
           },
         ],
         role: "user",
@@ -55,9 +55,10 @@ const askGemini = async (prompt) => {
   }
 
   const responseBody = await response.json();
-  return responseBody.candidates.flatMap((candidate) =>
-    candidate.content.parts.map((part) => part.text),
-  );
+
+  console.log(responseBody);
+
+  return responseBody.candidates[0].content.parts[0].text;
 };
 
 module.exports.sendMessage = sendMessage;
