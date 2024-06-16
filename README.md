@@ -10,7 +10,7 @@ Quickly deploy your **Telegram** bot to **Netlify** and integrate it with **Goog
 4. Add your repository to [Netlify](https://app.netlify.com/start).
 5. Set environment variables `TELEGRAM_BOT_TOKEN` and `GEMINI_API_KEY` in the Netlify dashboard.
 6. Wait for the deployment to continue.
-7. Set the webhook using npx script: `npx sethook TELEGRAM_BOT_TOKEN https://DOMAIN.netlify.app/.netlify/functions/webhook`
+7. Set the webhook using npx script: `npx sethook TELEGRAM_BOT_TOKEN https://DOMAIN.netlify.app/.netlify/functions/webhook` or GET query in browser or curl like `https://api.telegram.org/bot{my_bot_token}/setWebhook?url=https://DOMAIN.netlify.app/.netlify/functions/webhook`
 8. Test your bot by sending a message to it.
 9. Edit prompt template in `prompt.template.js` to customize the bot behavior.
 
