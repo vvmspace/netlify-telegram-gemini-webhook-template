@@ -1,6 +1,6 @@
 # Netlify Telegram Gemini Webhook Template
 
-Deploy your Telegram bot to Netlify and run it without managing a server.
+Quickly deploy your **Telegram** bot to Netlify and integrate it with **Google Gemini**. Just **edit the prompt template!**
 
 ## Getting Started
 
@@ -16,10 +16,12 @@ Deploy your Telegram bot to Netlify and run it without managing a server.
 
 ## Files
 
-- `netlify.toml`: Netlify configuration file.
 - `netlify/functions/webhook.js`: Webhook function.
+- `api.js`: HTTP wrappers for Telegram and Google Gemini APIs
+- `netlify.toml`: Netlify configuration file.
+- `prompt.template.js`: Prompt template. Edit this file to customize the bot's responses.
 
-## Check also
+## Additional Resources
 
 - [npx sethook](https://github.com/vvmspace/sethook): Set Telegram webhook using `npx`.
 - [netlify-telegram-webhook-template](https://github.com/vvmspace/netlify-telegram-webhook-template): Netlify Telegram Webhook Template.
