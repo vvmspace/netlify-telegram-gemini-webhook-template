@@ -1,6 +1,6 @@
 # Netlify Telegram Gemini Webhook Template
 
-Quickly deploy your **Telegram** bot to Netlify and integrate it with **Google Gemini**. Just **edit the prompt template!**
+Quickly deploy your **Telegram** bot to **Netlify** and integrate it with **Google Gemini**. Just **edit the prompt template!**
 
 ## Getting Started
 
