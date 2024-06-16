@@ -1,7 +1,3 @@
-// /.netlify/functions/webhook
-
-const promptTemplate = require("./prompt.template");
-
 const sendMessage = async (chatId, text) => {
   const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 
@@ -64,24 +60,5 @@ const askGemini = async (prompt) => {
   );
 };
 
-exports.handler = async (event) => {
-  const bodyAsText = event.body;
-  if (!bodyAsText) {
-    return {
-      statusCode: 400,
-      body: "No body provided",
-    };
-  }
-
-  const body = JSON.parse(bodyAsText);
-  const chatId = body.message.chat.id;
-  const prompt = promptTemplate(body.message.text);
-  const reply = await askGemini(prompt);
-
-  await sendMessage(chatId, reply);
-
-  return {
-    statusCode: 200,
-    body: "Webhook received",
-  };
-};
+module.exports.sendMessage = sendMessage;
+module.exports.askGemini = askGemini;
